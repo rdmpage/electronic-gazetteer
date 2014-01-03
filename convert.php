@@ -11,6 +11,7 @@ $db_names = array(
 $dbh = new PDO($db_names['NIMA Papua New Guniea Gazetteer']);
 
 $sql = 'SELECT * FROM tblGaz WHERE tDivision="Madang"';
+$sql = 'SELECT * FROM tblGaz';
 
 $modified = array();
 foreach ($dbh->query($sql) as $row)
