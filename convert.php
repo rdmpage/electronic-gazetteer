@@ -6,11 +6,13 @@ $geojson->features = array();
 
 
 $db_names = array(
-	'NIMA Papua New Guniea Gazetteer' => 'sqlite:' . 'eGazFiles/' . 'Papua New Guinea Gazetteer.gaz'
+	'NIMA Papua New Guniea Gazetteer' 	=> 'sqlite:' . 'eGazFiles/' . 'Papua New Guinea Gazetteer.gaz',
+	'NIMA Solomon Islands Gazetteer'	=> 'sqlite:' . 'eGazFiles/' . 'Solomon Islands Gazetteer.gaz'
 );
-$dbh = new PDO($db_names['NIMA Papua New Guniea Gazetteer']);
 
-$sql = 'SELECT * FROM tblGaz WHERE tDivision="Madang"';
+//$dbh = new PDO($db_names['NIMA Papua New Guniea Gazetteer']);
+$dbh = new PDO($db_names['NIMA Solomon Islands Gazetteer']);
+
 $sql = 'SELECT * FROM tblGaz';
 
 $modified = array();
@@ -47,5 +49,5 @@ foreach ($dbh->query($sql) as $row)
 	
 }
 
-file_put_contents('geojson/' . 'NIMA Papua New Guniea Gazetteer.geojson', json_encode($geojson));
+file_put_contents('geojson/' . 'NIMA Solomon Islands Gazetteer.geojson', json_encode($geojson));
 
